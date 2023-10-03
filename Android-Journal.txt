@@ -1,0 +1,572 @@
+
+ANDROID APPLICATION PROGRAMMING
+
+
+Assignment No.1
+1) Write a Program to make Android application which having simple activity to shows any Message in TextView when click on Button "Click Me."
+
+package com.example.myapplication;
+import androidx.appcompat.app.AppCompatActivity; import android.os.Bundle;
+import android.view.View; import android.widget.Button; import android.widget.TextView;
+public class MainActivity extends AppCompatActivity { public Button bt1;
+public TextView tv1; @Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main);
+
+bt1=(Button)findViewById(R.id.bt1);
+tv1=(TextView)findViewById(R.id.tv1); bt1.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View v) { tv1.setText("This is First Android App");
+}
+});
+}
+}
+
+
+2) Write a Program to make Android application which accept string by EdiText and print that string in
+Uppercase, Bold, Size = 64dp, Center Alignment, Change Text Color when you click on Show Button.
+
+import androidx.appcompat.app.AppCompatActivity; import android.os.Bundle;
+import android.view.View; import android.widget.Button; import android.widget.EditText; import android.widget.TextView;
+public class MainActivity extends AppCompatActivity { public Button mybtn;
+public TextView mytv1; public EditText myed; @Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); mybtn=(Button)findViewById(R.id.btn1); mytv1=(TextView)findViewById(R.id.tv1);
+
+myed=(EditText)findViewById(R.id.ed1);
+mybtn.setOnClickListener(new View.OnClickListener() { @Override
+public void onClick(View v) {
+String s=myed.getText().toString(); mytv1.setText(s);
+}
+});
+}
+}
+
+
+3) Write a Program to make Android application which shows use of all methods in Activity life cycle.
+package example.javatpoint.com.activitylifecycle; import android.app.Activity;
+import android.os.Bundle; import android.util.Log;
+public class MainActivity extends Activity { @Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); Log.d("lifecycle","onCreate invoked");
+}
+@Override
+protected void onStart() { super.onStart(); Log.d("lifecycle","onStart invoked");
+}
+@Override
+protected void onResume() { super.onResume(); Log.d("lifecycle","onResume invoked");
+}
+@Override
+protected void onPause() { super.onPause(); Log.d("lifecycle","onPause invoked");
+}
+
+@Override
+protected void onStop() { super.onStop(); Log.d("lifecycle","onStop invoked");
+}
+@Override
+protected void onRestart() { super.onRestart(); Log.d("lifecycle","onRestart invoked");
+}
+@Override
+protected void onDestroy() { super.onDestroy(); Log.d("lifecycle","onDestroy invoked");
+}
+}
+
+
+4) Write a Program to make Android application which accept the any number and finds square. Result
+display in TextView after click on Button Show.
+
+import androidx.appcompat.app.AppCompatActivity; import android.os.Bundle;
+import android.view.View; import android.widget.Button; import android.widget.EditText; import android.widget.TextView;
+public class MainActivity extends AppCompatActivity { public Button mybtn;
+public TextView mytv1; public EditText myed; @Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); mybtn=(Button)findViewById(R.id.btn1); mytv1=(TextView)findViewById(R.id.tv1);
+
+myed=(EditText)findViewById(R.id.enm1);
+mybtn.setOnClickListener(new View.OnClickListener() { @Override
+public void onClick(View v) {
+int n=Integer.parseInt(myed.getText().toString()); int a=n*n;
+String s=String.valueOf(a); mytv1.setText(s);
+mytv1.setText("The square of " + n + " is " + s);
+
+}
+});
+}
+}
+
+
+5) Write a Program to make Android application creates a simple calculator to make addition, subtraction,
+multiplication & division. which accept any two values and display results in EditText.
+
+package com.example.simple_calculator;
+import androidx.appcompat.app.AppCompatActivity; import android.os.Bundle;
+import android.view.View; import android.widget.EditText;
+public class MainActivity extends AppCompatActivity { @Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main);
+}
+public void Add(View v){
+EditText et1 =(EditText)findViewById(R.id.editTextNumber); EditText et2 =(EditText)findViewById(R.id.editTextNumber2); EditText et3 =(EditText)findViewById(R.id.editTextNumber3); int n1 = Integer.parseInt(et1.getText().toString());
+
+int n2 = Integer.parseInt(et2.getText().toString());
+int result = n1+n2; et3.setText("Total Value " +result);
+}
+
+public void Subtract(View v){
+EditText et1 =(EditText)findViewById(R.id.editTextNumber); EditText et2 =(EditText)findViewById(R.id.editTextNumber2); EditText et3 =(EditText)findViewById(R.id.editTextNumber3); int n1 = Integer.parseInt(et1.getText().toString());
+int n2 = Integer.parseInt(et2.getText().toString()); int result = n1-n2;
+et3.setText("Subtract Value " +result);
+
+}
+public void Multiply(View v){
+EditText et1 =(EditText)findViewById(R.id.editTextNumber); EditText et2 =(EditText)findViewById(R.id.editTextNumber2); EditText et3 =(EditText)findViewById(R.id.editTextNumber3); int n1 = Integer.parseInt(et1.getText().toString());
+int n2 = Integer.parseInt(et2.getText().toString()); int result = n1*n2;
+et3.setText("Multiply Value " +result);
+
+}
+public void Divide(View v){
+EditText et1 =(EditText)findViewById(R.id.editTextNumber); EditText et2 =(EditText)findViewById(R.id.editTextNumber2); EditText et3 =(EditText)findViewById(R.id.editTextNumber3); int n1 = Integer.parseInt(et1.getText().toString());
+
+int n2 = Integer.parseInt(et2.getText().toString());
+int result = n1/n2; et3.setText("Divide Value " +result);
+}
+}
+
+
+6) Write a Program to make Android Application which open the URL:https:google.com" after click on
+Click Me Button (Use intent concept.)
+
+package com.example.myapplication;
+import androidx.appcompat.app.AppCompatActivity; import android.os.Bundle;
+import android.net.Uri; import android.content.Intent; import android.view.View; import android.widget.Button;
+public class MainActivity extends AppCompatActivity { public Button btn1;
+@Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); btn1=(Button) findViewById(R.id.mybtn);
+btn1.setOnClickListener(new View.OnClickListener() { @Override
+
+public void onClick(View view) {
+Intent i=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com")); startActivity(i);
+}
+});
+}
+}
+
+
+7) Write a program to make Android Application to call various built in application (to Dial number, to open
+http://www.amazon.com)
+
+package com.example.yourappname; import android.content.Intent; import android.net.Uri;
+import android.os.Bundle; import android.view.View;
+import androidx.appcompat.app.AppCompatActivity; public class MainActivity extends AppCompatActivity {
+@Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main);
+findViewById(R.id.btnDial).setOnClickListener(new View.OnClickListener() { @Override
+public void onClick(View v) {
+dialNumber("1234567890"); // Replace with the desired phone number
+
+}
+
+});
+findViewById(R.id.btnOpenWebPage).setOnClickListener(new View.OnClickListener() { @Override
+public void onClick(View v) { openWebPage("http://www.amazon.com");
+}
+});
+}
+
+private void dialNumber(String phoneNumber) {
+Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber)); startActivity(intent);
+}
+private void openWebPage(String url) {
+Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url)); startActivity(intent);
+}}
+
+
+
+
+
+8) Write a Program to make Android Application to open Userdetails Form when click on Show Button (Use
+Intent Concept & UserDetails Form Contains Username,Password, Submit & Cancel Button).
+
+package com.example.tybca_13214;
+import androidx.appcompat.app.AppCompatActivity; import android.os.Bundle;
+import android.content.Intent; import android.view.View; import android.widget.Button;
+public class MainActivity extends AppCompatActivity { public Button mybtn;
+@Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); mybtn=(Button) findViewById(R.id.bt1);
+mybtn.setOnClickListener(new View.OnClickListener() { @Override
+public void onClick(View view) {
+
+
+
+}
+});
+}
+}
+
+Intent i=new Intent(getApplicationContext(),userform.class);
+startActivity(i);
+
+
+
+
+
+userform.java
+package com.example.tybca_13214;
+import androidx.appcompat.app.AppCompatActivity; import android.os.Bundle;
+public class userform extends AppCompatActivity { @Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_userform);
+}
+}
+
+
+9) Write a Program to Make Android Application which display alert dialog box having Yes & No Button
+after click on show Button.
+
+package com.example.tybca_13214;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity; import android.content.DialogInterface;
+import android.os.Bundle; import android.content.Intent; import android.view.View; import android.widget.Button;
+public class MainActivity extends AppCompatActivity { public Button mybtn;
+@Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); mybtn=(Button) findViewById(R.id.bt1);
+mybtn.setOnClickListener(new View.OnClickListener() {
+
+@Override
+public void onClick(View view) {
+AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this); builder.setMessage("Do you want to continue"); builder.setTitle("Alert!");
+builder.setCancelable(false);
+builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() { @Override
+public void onClick(DialogInterface dialogInterface, int i) { dialogInterface.cancel();
+}
+});
+builder.setNegativeButton("No", new DialogInterface.OnClickListener() { @Override
+public void onClick(DialogInterface dialogInterface, int i) { dialogInterface.cancel();
+
+
+
+
+
+
+}
+});
+}
+}
+
+}
+});
+AlertDialog alert=builder.create(); alert.show();
+
+
+
+10) Write a program to Make Android Application which uses fragment concept to create a two fragments in
+single Activity.
+
+
+Assignment No.2
+11) Create a simple application which accept any message form user and display that message into second activity with the help of intent.
+
+MainActivity.java
+package com.example.tybca_13214;
+import androidx.appcompat.app.AppCompatActivity; import android.content.Intent;
+import android.os.Bundle; import android.view.View; import android.widget.Button; import android.widget.EditText;
+public class MainActivity extends AppCompatActivity { public Button mybt;
+public EditText myed; @Override
+protected void onCreate(Bundle savedInstanceState){ super.onCreate(savedInstanceState); setContentView(R.layout.activity_main);
+
+mybt=(Button) findViewById(R.id.bt1);
+myed=(EditText) findViewById(R.id.ed1); myed.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View view) { String str=myed.getText().toString();
+Intent i=new Intent(getApplicationContext(), second.class); i.putExtra("Message",str);
+startActivity(i);
+
+}
+});
+}
+}
+
+
+
+
+second.java
+package com.example.tybca_13214;
+import androidx.appcompat.app.AppCompatActivity; import android.os.Bundle;
+import android.widget.TextView; import android.content.Intent;
+public class second extends AppCompatActivity { public TextView tv;
+@Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_second); tv=(TextView) findViewById(R.id.tv1);
+
+Intent j=getIntent();
+String nstr=j.getStringExtra("Message"); tv.setText(nstr);
+}
+}
+
+
+
+
+
+
+12) Create a simple application which accept any +ve number from the user & display its reverse number
+into another activity with the help of intent.
+
+MainActivity.java
+package com.example.tybca_13214;
+import androidx.appcompat.app.AppCompatActivity; import android.content.Intent;
+import android.os.Bundle; import android.view.View; import android.widget.Button; import android.widget.EditText;
+public class MainActivity extends AppCompatActivity { public Button mybt;
+public EditText myed; @Override
+protected void onCreate(Bundle savedInstanceState){ super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); mybt=(Button) findViewById(R.id.bt1);
+
+myed=(EditText) findViewById(R.id.ed1);
+mybt.setOnClickListener(new View.OnClickListener() { @Override
+public void onClick(View view) { Integer rem;
+Integer rev=0;
+Integer n=Integer.parseInt(myed.getText().toString()); while(n>0){
+rem=n%10; rev=rev*10+rem; n=n/10;
+
+
+
+
+
+
+
+}
+});
+}
+}
+
+}
+String s=String.valueOf(rev);
+Intent i=new Intent(getApplicationContext(), second.class); i.putExtra("reverse",s);
+startActivity(i);
+
+
+
+
+
+second.java
+package com.example.tybca_13214;
+import androidx.appcompat.app.AppCompatActivity; import android.os.Bundle;
+import android.widget.TextView; import android.content.Intent;
+
+public class second extends AppCompatActivity {
+public TextView mytv; @Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_second); mytv=(TextView) findViewById(R.id.tv1);
+Intent j=getIntent();
+String r=j.getStringExtra("reverse"); mytv.setText(r);
+}
+}
+
+
+13) Create a simple application which shows use of Radio Button. When Click on Radio Button it shows
+message into Toast.
+
+MainActivity.java
+package com.example.tybca_13214;
+import androidx.appcompat.app.AppCompatActivity; import android.content.Intent;
+import android.os.Bundle;
+import android.view.View.OnClickListener; import android.view.View;
+import android.widget.RadioButton; import android.widget.Toast;
+public class MainActivity extends AppCompatActivity { public RadioButton mrdo;
+public RadioButton frdo; @Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main);
+
+mrdo = (RadioButton) findViewById(R.id.rdo1);
+frdo = (RadioButton) findViewById(R.id.rdo2); mrdo.setOnClickListener(radiolistener); frdo.setOnClickListener(radiolistener);
+}
+
+private OnClickListener radiolistener=new OnClickListener(){ @Override
+public void onClick(View view){
+RadioButton radioButton=(RadioButton) view; Toast.makeText(MainActivity.this,radioButton.getText(), Toast.LENGTH_LONG).show();;
+}
+};
+}
+
+
+14) Create a simple application which display simple alert dialog box having message "do you want to
+continue?" with Yes & No Button.
+
+package com.example.tybca_13214; import android.content.DialogInterface; import android.os.Bundle;
+import android.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity { @Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main);
+
+AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+builder.setTitle("Confirmation"); builder.setMessage("Do you want to continue?");
+builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() { @Override
+public void onClick(DialogInterface dialog, int which) {
+}
+});
+builder.setNegativeButton("No", new DialogInterface.OnClickListener() { @Override
+public void onClick(DialogInterface dialog, int which) {
+// Do something when the user clicks the "No" button
+
+}
+});
+AlertDialog dialog = builder.create(); dialog.show();
+}
+}
+
+
+15) Create a simple application which display scroll layout of 15 Button.(use LinearLayout to show all
+Button)
+
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent"
+tools:context=".MainActivity">
+<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical">
+<Button
+android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Button1"/>
+<Button
+android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Button2"/>
+<Button
+android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Button3"/>
+<Button
+android:layout_width="fill_parent"
+
+android:layout_height="wrap_content"
+android:text="Button4"/>
+<Button
+android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Button5"/>
+<Button
+android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Button6"/>
+<Button
+android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Button7"/>
+<Button
+android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Button8"/>
+<Button
+android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Button9"/>
+<Button
+android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Button10"/>
+<Button
+
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" android:text="Button11"/>
+<Button
+android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Button12"/>
+<Button
+android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Button13"/>
+<Button
+android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Button14"/>
+<Button
+android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Button15"/>
+
+</LinearLayout>
+</ScrollView>
+
+
+16) Create a simple application which creates simple userform by using TableLayout. (User form having
+field Enter the user Name &, Enter User Email with login Button)
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical"
+android:padding="16dp" tools:context=".MainActivity">
+<TableLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:stretchColumns="1">
+<TableRow>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Enter the User Name:" android:paddingEnd="8dp"/>
+<EditText android:id="@+id/etUserName" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+
+android:hint="Username"/>
+</TableRow>
+<TableRow>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Enter User Email:" android:paddingEnd="8dp"/>
+<EditText android:id="@+id/etUserEmail" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Email"/>
+</TableRow>
+<TableRow>
+<Button
+android:id="@+id/btnLogin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="Login"/>
+</TableRow>
+</TableLayout>
+</LinearLayout>
+
+
+
+17) Create a Simple application which creates and display ListView of Subject names.
+
+package com.example.tybca_13214;
+import androidx.appcompat.app.AppCompatActivity; import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView; import android.widget.ListView; import android.widget.ArrayAdapter; import android.widget.Adapter; import android.widget.Toast;
+public class MainActivity extends AppCompatActivity { public ListView l1;
+String subject[]={"Python","Java","ado.net","Android","C.programing"}; @Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); l1=(ListView)findViewById(R.id.list1); ArrayAdapter<String>arr=new ArrayAdapter<String>(this,
+androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,subject);
+l1.setAdapter(arr);
+l1.setOnItemClickListener(new AdapterView.OnItemClickListener() { @Override
+public void onItemClick(AdapterView<?> parent, View view, int pos, long id) { Toast.makeText(parent.getContext(),
+"Item Selected"+parent.getItemAtPosition(pos).toString(), Toast.LENGTH_LONG).show();
+
+}
+});
+}
+}
+
+
+18) Create a simple application which creates Spinner View of Country name.
+package com.example.tybca_13214;
+import androidx.appcompat.app.AppCompatActivity; import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView; import android.widget.ArrayAdapter; import android.widget.Adapter; import android.widget.Spinner; import android.widget.Toast;
+public class MainActivity extends AppCompatActivity { public Spinner sp;
+String country[] = {"India", "China", "Nepal", "Bangladesh", "SriLanka"}; @Override
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); sp=(Spinner) findViewById(R.id.sp1);
+    ArrayAdapter<String>arr=new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+    country); sp.setAdapter(arr);
+sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { @Override
+public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) { Toast.makeText(getApplicationContext(),
+"Selected Item="+adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_LONG).show();
+
+}
+@Override
+public void onNothingSelected(AdapterView<?> adapterView){
+
+
+
+
+}
+});
+}
+}
+
+
+19) Create a Simple application to display context menu of color name (After Long Press)
+
+package com.example.tybca_13214; import android.os.Bundle;
+import android.view.ContextMenu; import android.view.View;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity; public class MainActivity extends AppCompatActivity {
+public TextView mytv; @Override
+public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); mytv=(TextView)findViewById(R.id.tv1); registerForContextMenu(mytv);
+}
+@Override
+  public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+super.onCreateContextMenu(menu,v,menuInfo); menu.setHeaderTitle("Choose color"); menu.add(0,v.getId(),0,"Yellow");
+menu.add(0,v.getId(),0,"Gray");
+
+}
+}
+
+
+
+20) Create a Simple application to accept any number from user and display its factorial value into Toast
+
+package com.example.tybca_13214; import android.os.Bundle;
+import android.view.View; import android.widget.Button; import android.widget.EditText; import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity; public class MainActivity extends AppCompatActivity {
+public EditText editTextNumber; public Button calculateButton; @Override
+public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); editTextNumber = findViewById(R.id.editTextNumber); calculateButton = findViewById(R.id.calculateButton);
+calculateButton.setOnClickListener(new View.OnClickListener() {
+
+@Override
+public void onClick(View view) { calculateFactorial();
+}
+});
+}
+
+public void calculateFactorial() { try {
+int number = Integer.parseInt(editTextNumber.getText().toString()); long factorial = 1;
+for (int i = 1; i <= number; i++) { factorial *= i;
+}
+String resultMessage = "Factorial of " + number + " is " + factorial; Toast.makeText(this, resultMessage, Toast.LENGTH_SHORT).show();
+} catch (NumberFormatException e) {
+Toast.makeText(this, "Please enter a valid number", Toast.LENGTH_SHORT).show();
+}}}
+
